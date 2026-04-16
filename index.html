@@ -23,10 +23,12 @@
         let autoSlide;
 
         function showSlide(index) {
-            slides.forEach(s => s.classList.remove("active"));
-            currentIndex = (index + slides.length) % slides.length;
-            slides[currentIndex].classList.add("active");
-        }
+          for (let i = 0; i < slides.length; i++) {
+              slides[i].classList.remove("active");
+          }
+          currentIndex = (index + slides.length) % slides.length;
+          slides[currentIndex].classList.add("active");
+      	}
 
         function resetTimer() { 
             clearInterval(autoSlide); 
