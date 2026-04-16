@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1> This is my attempt for the auto slider image project!</h1>
+    <div class="slider"> <img class= "slide active" id="1" src="./images/yakuza-0-b.png" alt="first">
+        <img class="slide" id="2" src="./images/white-cloud-blue-sky-sea_74190-4488.png" alt="second"> <img class="slide" id="3" src="./images/300px-SonicAdventure2Battle.png" alt="third">
+        <img class="slide" id="4" src="./images/Potatoes-shutterstock-1721688538.jpg.png" alt="fourth"> 
+  
+  <button class="prev"><</button>
+  <button class="next">></button>
+  </div>
+  <script>
+        let slides = document.querySelectorAll(".slide");
+        let prevBtn = document.querySelector(".prev");
+        let nextBtn = document.querySelector(".next");
+        let currentIndex = 0;
+        let autoSlide;
+
+        function showSlide(index) {
+            slides.forEach(s => s.classList.remove("active"));
+            currentIndex = (index + slides.length) % slides.length;
+            slides[currentIndex].classList.add("active");
+        }
+
+        function resetTimer() { 
+            clearInterval(autoSlide); 
+            autoSlide = setInterval(() => { 
+                showSlide(currentIndex + 1); 
+            }, 3000); 
+        }
+
+        prevBtn.addEventListener("click", () => {
+            showSlide(currentIndex - 1);
+            resetTimer();                         
+        });
+
+        nextBtn.addEventListener("click", () => {
+            showSlide(currentIndex + 1);
+            resetTimer();                         
+        });
+
+        resetTimer();
+</script>
+        
+</body>
+</html>
