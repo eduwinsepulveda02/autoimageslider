@@ -33,3 +33,9 @@ button{
    transition: opacity 0.8s ease-in-out;
 }
 
+.slider {
+  width: 100%;
+  margin: auto;
+  height: 1000px;
+  position: relative;
+}
